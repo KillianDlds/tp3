@@ -67,3 +67,4 @@ Cette boite a été générée avec css. Oserez-vous reproduire le résultat?
     }
 
 </style>
+>>>>>>> 5a4fe5d6fcf8638ae3728a9fb0d6ab77eadcea35

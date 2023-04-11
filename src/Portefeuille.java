@@ -20,13 +20,14 @@ public class Portefeuille {
    */
   public boolean transfertDevise (Portefeuille destination, double montantJetons)
   {
-      if (this.valeurEnEuros() < montantJetons) return false;
-      if (! destination.getMonnaie().equals(this.getMonnaie())) return false;
+    if(this.montant >= montantJetons && destination.monnaie.equals(this.monnaie))
+    {
+        this.montant -= montantJetons;
+        destination.montant += montantJetons;
+        return true;
 
-      this.montant -= montantJetons;
-      destination.montant += montantJetons;
-
-      return true;
+    }
+      return false;
   }
 
   /**
@@ -36,15 +37,15 @@ public class Portefeuille {
    * @param montantEuros Valeur d'achat en euros 
    * @return true si le montant en euros est supérieur ou égal à 0 
    */
-  public boolean achatDevise (double montantEuros){
-	
-    this.montant += montantEuros/this.monnaie.getValeurDeJeton();
-
-    if (this.montant >= 0)
-        return true;
-
-    return false;
-  }
+  public boolean achatDevise (double montantEuros)
+    {
+        if(montantEuros >= 0 )
+        {
+            this.montant += montantEuros / this.monnaie.getValeurDeJeton() ;
+            return true;
+        }
+        return false;
+    }
 
   /**
    * Valide si le proprietaire passé en parametre est celui

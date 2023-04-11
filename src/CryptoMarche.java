@@ -30,7 +30,7 @@ public class CryptoMarche {
 
         for (int i = 0; i < portefeuilles.size(); i++) 
             if(marche.portefeuilles.get(i).estProprietaire(proprietaire))
-                capitale += marche.portefeuilles.get(i).getMonnaie().getValeurDeJeton();
+                capitale += marche.portefeuilles.get(i).valeurEnEuros();
 
         return capitale;
     }
@@ -48,7 +48,7 @@ public class CryptoMarche {
 
         for (int i = 0; i < portefeuilles.size(); i++) 
             if(marche.portefeuilles.get(i).getMonnaie() == monnaie)
-                volumeTot += marche.portefeuilles.get(i).getMonnaie().getValeurDeJeton();
+                volumeTot += marche.portefeuilles.get(i).valeurEnEuros();
 
         return volumeTot;
     }
